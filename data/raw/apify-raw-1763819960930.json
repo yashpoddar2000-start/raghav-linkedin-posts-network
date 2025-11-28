@@ -1,0 +1,47 @@
+{
+  "urn": {
+    "activity_urn": "7396948074578984960",
+    "share_urn": "7396948073358430208",
+    "ugcPost_urn": null
+  },
+  "full_urn": "urn:li:activity:7396948074578984960",
+  "posted_at": {
+    "date": "2025-11-19 17:30:49",
+    "relative": "2 days ago • Visible to anyone on or off LinkedIn",
+    "timestamp": 1763569849629
+  },
+  "text": "DoorDash tripled market share in 5 years. Uber Eats stayed flat.\n\nDoorDash launched DashPass in 2018. $9.99/month. Unlimited delivery.\n\nUber launched Uber One in 2024. 6 years late.\n\n6 years behind = fighting established habits. $9.99/month × 60 months = $600 lifetime value already captured.\n\nExecution:\n\nDoorDash: 95% on-time, 26-minute delivery, advanced routing, order batching.\n\nUber Eats: 30-minute delivery, drivers switching between rides/food/grocery, multi-vertical resource allocation.\n\nDoorDash drivers deliver food. Uber drivers deliver everything. Focus dilutes.\n\nRestaurant exclusivity:\n\nDoorDash (2014-2020):\n• Exclusive agreements with suburban restaurant chains\n• Connected to restaurant ordering systems within one week\n• Locked competitors out\n\nUber Eats:\n• Urban restaurant focus\n• No aggressive suburban exclusivity\n• Leveraged ride-sharing relationships\n\nExclusive deals = locked out. Can't deliver from restaurants under contract.\n\nGeographic sequencing:\n\nPhase 1 (2014-2018): DoorDash dominated urban markets. SF, LA, NYC, Chicago. Beat Grubhub and Uber.\n\nPhase 2 (2018-2020): Expanded to suburbs with exclusivity deals. Uber didn't follow aggressively.\n\nUrban economics work better: shorter routes, higher density. But DoorDash won both. Uber only competed urban.\n\nStrategic constraints:\n\nUber: $20B ride-sharing + $12.5B grocery + food delivery = three priorities competing for driver time.\n\nDoorDash: Food delivery = only priority. All resources optimized for one business.\n\nPure-play beats diversified.\n\nQ3 2024:\n• DoorDash: $2.7B revenue, first profitable year, 24% growth\n• Uber Eats: $3.5B revenue, 4.1% margin, 13% growth\n\nMore revenue ≠ more profit when your model splits resources across three businesses.\n\nThe compounding loop:\n\nDashPass (2018) → customer lock-in → higher order frequency → better restaurant deals → exclusive agreements → suburban dominance → 95% on-time rate → more customers.\n\nUber's 2024 subscription launch fights this with same price, weaker metrics (30 min vs 26 min), no exclusive access.\n\n2024: DoorDash 60.7%, Uber Eats 23%.",
+  "url": "https://www.linkedin.com/posts/bypoddar_doordash-tripled-market-share-in-5-years-activity-7396948074578984960-Nv5R?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGB_oDUBTMF8qXDctqHr_cbZgZkgLxQdUCg",
+  "post_type": "regular",
+  "author": {
+    "first_name": "Raghav",
+    "last_name": "Poddar",
+    "headline": "Co-founder + CEO at Superorder | Forbes 30u30 | Columbia | YC S19",
+    "username": "bypoddar",
+    "profile_url": "https://www.linkedin.com/in/bypoddar?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAABqt4CQBzg42e7dg-MM7ieoF2nzfc4YAEQo",
+    "profile_picture": "https://media.licdn.com/dms/image/v2/D4D03AQEZsanNug45Yg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1690482357772?e=1765411200&v=beta&t=XDUxQghlYLMOEyy_Ll4TwiPXdKglwgOeZjhjGIyidak"
+  },
+  "stats": {
+    "total_reactions": 127,
+    "like": 105,
+    "support": 1,
+    "love": 0,
+    "insight": 17,
+    "celebrate": 4,
+    "funny": 0,
+    "comments": 5,
+    "reposts": 5
+  },
+  "media": {
+    "type": "image",
+    "url": "https://media.licdn.com/dms/image/v2/D4D22AQG2SuZ5yZIuTg/feedshare-shrink_1280/B4DZqc9FBrG8Aw-/0/1763569848886?e=1765411200&v=beta&t=shu-KGTMPdrzfAERYwmQaOqd0Rgz6QTYYQuophql-Jg",
+    "images": [
+      {
+        "url": "https://media.licdn.com/dms/image/v2/D4D22AQG2SuZ5yZIuTg/feedshare-shrink_1280/B4DZqc9FBrG8Aw-/0/1763569848886?e=1765411200&v=beta&t=shu-KGTMPdrzfAERYwmQaOqd0Rgz6QTYYQuophql-Jg",
+        "width": 1200,
+        "height": 1200
+      }
+    ]
+  },
+  "pagination_token": "dXJuOmxpOmFjdGl2aXR5OjczMzE2ODAzMTg2NjU1MDI3MjAtMTc0ODAwODgwMzk2NQ=="
+}
