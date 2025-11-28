@@ -62,7 +62,12 @@ export const exaDeepResearchTool = createTool({
 
     const startTime = Date.now();
     console.log(`🔬 Starting deep research using ${model}`);
-    console.log(`🎯 Research prompt: "${prompt.substring(0, 100)}..."`);
+    console.log(`📏 Prompt length: ${prompt.length} characters (max: 4096)`);
+    console.log('\n' + '─'.repeat(70));
+    console.log('📝 FULL RESEARCH PROMPT SENT TO EXA:');
+    console.log('─'.repeat(70));
+    console.log(prompt);
+    console.log('─'.repeat(70) + '\n');
 
     let lastError = "";
     
@@ -93,6 +98,13 @@ export const exaDeepResearchTool = createTool({
               const executionTime = Date.now() - startTime;
               console.log(`✅ Research completed in ${Math.floor(executionTime / 1000)}s (${pollAttempts} polls)`);
               console.log(`💰 Cost: $${result.costDollars.total.toFixed(4)} (${result.costDollars.numSearches} searches, ${result.costDollars.numPages.toFixed(1)} pages)`);
+              
+              // Log Exa's raw output for debugging/comparison
+              console.log('\n' + '─'.repeat(70));
+              console.log('📄 EXA RESEARCH OUTPUT (Raw):');
+              console.log('─'.repeat(70));
+              console.log(result.output.content);
+              console.log('─'.repeat(70) + '\n');
               
               return {
                 prompt,

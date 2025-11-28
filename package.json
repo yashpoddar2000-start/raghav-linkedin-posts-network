@@ -7,7 +7,13 @@
     "dev": "mastra dev",
     "build": "mastra build",
     "start": "mastra start",
-    "example": "tsx src/example.ts"
+    "example": "tsx src/example.ts",
+    "test:exa-answer": "tsx src/test-tools/test-exa-answer.ts",
+    "test:exa-deep": "tsx src/test-tools/test-exa-deep-research.ts",
+    "test:tools": "npm run test:exa-answer && npm run test:exa-deep",
+    "test:alex": "tsx src/test-agents/test-alex.ts",
+    "test:david": "tsx src/test-agents/test-david.ts",
+    "test:maya": "tsx src/test-agents/test-maya.ts"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +31,8 @@
     "@mastra/loggers": "^0.10.19",
     "@mastra/memory": "^0.15.12",
     "dotenv": "^17.2.3",
+    "exa-js": "^1.1.1",
+    "openai": "^4.73.0",
     "zod": "^4.1.13"
   },
   "devDependencies": {
