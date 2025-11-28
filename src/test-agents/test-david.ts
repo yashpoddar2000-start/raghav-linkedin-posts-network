@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { davidPark } from '../mastra/agents/industry-researcher';
+import { davidPark } from '../mastra/agents/david-park';
 import { QSR_RESOURCE_ID, generatePostThreadId } from '../mastra/config/qsr-memory';
 
 /**

@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { mayaPatel } from '../mastra/agents/economist';
+import { mayaPatel } from '../mastra/agents/maya-patel';
 import { QSR_RESOURCE_ID, generatePostThreadId } from '../mastra/config/qsr-memory';
 
 /**

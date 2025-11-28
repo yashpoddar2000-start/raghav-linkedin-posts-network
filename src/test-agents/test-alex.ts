@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { alexRivera } from '../mastra/agents/data-analyst';
+import { alexRivera } from '../mastra/agents/alex-rivera';
 import { QSR_RESOURCE_ID, generatePostThreadId } from '../mastra/config/qsr-memory';
 
 /**
