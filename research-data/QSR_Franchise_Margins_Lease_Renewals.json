@@ -1,0 +1,33 @@
+{
+  "runId": "QSR_Franchise_Margins_Lease_Renewals",
+  "timestamp": "2025-12-01T14:42:06.251Z",
+  "alexData": {
+    "research": {
+      "What is the average franchise margin for QSR industry in 2024?": "The average net profit margin for fast food franchises typically ranges from 6% to 9% (2024) [Source: Franshares - https://franshares.com/the-most-profitable-fast-food-franchises-of-2024]",
+      "What are the typical lease renewal costs for QSR franchises in 2024?": "Specific lease renewal costs for QSR franchises are not available. Franchise agreements typically last 10-20 years, with renewal fees often a percentage of the initial franchise fee or sales. [Source: Franzy - https://franzy.com/blog/average-franchise-fees]",
+      "How do lease renewals impact profitability for QSR franchises in 2024?": "Lease renewals significantly impact profitability. One franchisee faced a nearly 30% rent increase upon renewal, prompting relocation. Rent management is crucial for success. [Source: QSR Magazine - https://www.qsrmagazine.com/story/how-some-restaurant-franchisees-are-adapting-to-2024s-economic-realities]",
+      "What are the competitive benchmarks for lease agreements in the QSR industry in 2024?": "Lease agreements typically involve 5-10 year terms. Total occupancy costs should be 6%-10% of gross sales. QSRs trade at an average cap rate of 5.44%. [Source: Avison Young - https://www.avisonyoung.us/documents/d/netlease/2024_qsr_sector_report-ay]",
+      "What is the average lease term for QSR franchises in 2024?": "The average lease term for QSR franchises is 5-20 years. Longer terms justify upfront costs. [Source: Occupier.com - https://www.occupier.com/blog/leasing-restaurant-space]",
+      "What percentage of QSR franchise costs are attributed to lease renewals in 2024?": "Exact percentage of costs attributed to lease renewals is not available. Rising occupancy costs impact franchisees. [Source: QSR Magazine - https://www.qsrmagazine.com/story/how-some-restaurant-franchisees-are-adapting-to-2024s-economic-realities]"
+    }
+  },
+  "davidData": {
+    "research": {}
+  },
+  "mayaData": {
+    "analysis": []
+  },
+  "taylorData": {
+    "posts": []
+  },
+  "marcusDecisions": {
+    "orchestration": [],
+    "iterations": [],
+    "posts": []
+  },
+  "jamesEvaluations": {
+    "feedback": [],
+    "approvals": [],
+    "scores": []
+  }
+}

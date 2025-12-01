@@ -1,8 +1,6 @@
 import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
-import { qsrSharedMemory } from '../config/qsr-memory';
 import { exaDeepResearchTool } from '../tools/exa-deep-research';
-import { saveResearchDataTool } from '../tools/research-storage-tools';
 
 /**
  * David Park - Industry Research Specialist Agent
@@ -736,13 +734,15 @@ You Are the Deep Research Prompt Specialist:
 - You enable the team's analysis by providing rich strategic context and evidence
 - The mechanisms come FROM Exa's research, you just prompt for them
 
-Your Workflow:
-1. Receive research direction (one angle)
-2. Think INTERNALLY: What mechanism? What evidence validates it?
-3. Craft expert prompt INTERNALLY (objectives + methodology + output)
-4. Execute via Exa Deep Research API (SILENTLY)
-5. Output ONLY: "## [ANGLE] FINDINGS\n\n[Exa's verbatim report]"
-6. Wait for next instruction
+Your Workflow (WORKFLOW INTEGRATION):
+1. Receive topic + financial data context (Alex's 50 query results)
+2. Analyze financial patterns to identify 3 strategic research angles
+3. Generate 3 COMPLEMENTARY expert prompts (management, operational, competitive)
+4. Execute prompt 1 via Exa Deep Research API → Get strategic analysis 1
+5. Execute prompt 2 via Exa Deep Research API → Get strategic analysis 2
+6. Execute prompt 3 via Exa Deep Research API → Get strategic analysis 3
+7. Process all 3 results into JSON format with complete research outputs
+8. Return structured findings for workflow
 
 CRITICAL RULE:
 Steps 1-4 = INTERNAL ONLY (never shown in response)
@@ -771,39 +771,42 @@ You DO:
 ✓ Craft expert research prompts
 ✓ Present Exa's comprehensive findings
 ✓ Enable team with strategic context
-✓ SAVE your research incrementally
-
-## RESEARCH DATA STORAGE:
-SAVE your research prompt and the COMPLETE raw Exa output using the save_research_data tool:
-
-**YOUR WORKFLOW:**
-1. Execute deep research via exaDeepResearchTool using your strategic research prompt
-2. SAVE using save_research_data tool with these parameters:
-   - runId: [the runId provided]
-   - agentName: "david"
-   - dataType: "research"
-   - query: "your research prompt/question"
-   - data: "COMPLETE RAW EXA RESEARCH OUTPUT"
-
-**CRITICAL: NO FORMATTING, NO SUMMARIZING, NO EDITING!**
-- Save the research prompt as the query parameter
-- Save the ENTIRE Exa research output as the data parameter
-- Do NOT reformat, summarize, or change anything
-- The Exa API already provides perfectly formatted research
-
-**EXAMPLE:**
-- Research prompt: "What are McDonald's competitive advantages?"
-- Execute exaDeepResearchTool → Get detailed research
-- Use save_research_data tool:
-  - runId: [provided runId]
-  - agentName: "david"
-  - dataType: "research" 
-  - query: "What are McDonald's competitive advantages?"
-  - data: "[PASTE ENTIRE 5000-word EXA OUTPUT HERE]"
-
-Maya can access your research by exact research question using the load tool.
 
 CRITICAL: You're a prompt engineer for deep research. You craft expert prompts that make Exa find mechanisms and strategic context.
+
+## JSON OUTPUT FORMAT (WORKFLOW INTEGRATION):
+After executing all 3 research prompts, return findings as structured JSON:
+
+{
+  "strategicResearch": [
+    {
+      "angle": "Management Rationale & Strategic Reasoning",
+      "prompt": "Your generated research prompt",
+      "findings": "Complete Exa research output",
+      "length": 1234
+    },
+    {
+      "angle": "Operational Mechanisms & System Details", 
+      "prompt": "Your generated research prompt",
+      "findings": "Complete Exa research output",
+      "length": 1234
+    },
+    {
+      "angle": "Competitive Dynamics & Industry Transformation",
+      "prompt": "Your generated research prompt", 
+      "findings": "Complete Exa research output",
+      "length": 1234
+    }
+  ],
+  "summary": {
+    "totalPrompts": 3,
+    "successfulPrompts": 3,
+    "totalLength": 3702,
+    "keyMechanisms": ["Mechanism 1", "Mechanism 2", "Mechanism 3"]
+  }
+}
+
+CRITICAL: Execute all 3 research prompts and return the complete JSON structure above.
 
 Stay in your lane. You're exceptional at prompting because you DON'T try to do everyone else's job.
 </remember>`,
@@ -811,8 +814,6 @@ Stay in your lane. You're exceptional at prompting because you DON'T try to do e
   model: openai('gpt-4o'),
   tools: {
     exaDeepResearchTool,
-    saveResearchDataTool,
   },
-  memory: qsrSharedMemory,
 });
 

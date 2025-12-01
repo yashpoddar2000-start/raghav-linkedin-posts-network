@@ -13,7 +13,13 @@
     "test:tools": "npm run test:exa-answer && npm run test:exa-deep",
     "test:alex": "tsx src/test-agents/test-alex.ts",
     "test:david": "tsx src/test-agents/test-david.ts",
-    "test:maya": "tsx src/test-agents/test-maya.ts"
+    "test:maya": "tsx src/test-agents/test-maya.ts",
+    "test:james": "tsx src/test-agents/test-james.ts",
+    "test:chain": "tsx src/test-agents/test-chain.ts",
+    "test:marcus-simple": "tsx src/test-marcus-simple.ts",
+    "test:qsr-detailed": "tsx src/test-qsr-network-detailed.ts",
+    "capture:marcus": "tsx src/capture-marcus-output.ts",
+    "test:fresh-topic": "tsx src/test-marcus-fresh-topic.ts"
   },
   "keywords": [],
   "author": "",
