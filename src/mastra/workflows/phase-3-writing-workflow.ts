@@ -37,6 +37,8 @@ const workflowInputSchema = z.object({
     keyNumbers: z.record(z.string()),
     narrativeSummary: z.string(),
   }),
+  // NEW: Full research data for depth
+  fullResearchData: z.string().optional(),
 });
 
 const workflowOutputSchema = z.object({
@@ -64,6 +66,7 @@ const initialWriteStep = createStep({
   outputSchema: z.object({
     topic: z.string(),
     viralInsights: workflowInputSchema.shape.viralInsights,
+    fullResearchData: z.string().optional(),
     currentPost: z.string(),
     iteration: z.number(),
   }),
@@ -72,7 +75,7 @@ const initialWriteStep = createStep({
     console.log(`✍️ WRITE ITERATION 1: Initial Draft`);
     console.log(`${'='.repeat(60)}`);
 
-    const prompt = buildWriterPrompt(inputData.viralInsights, null);
+    const prompt = buildWriterPrompt(inputData.viralInsights, inputData.fullResearchData, null);
     const result = await taylorExa.generate(prompt);
     const post = result.text || '';
 
@@ -82,6 +85,7 @@ const initialWriteStep = createStep({
     return {
       topic: inputData.topic,
       viralInsights: inputData.viralInsights,
+      fullResearchData: inputData.fullResearchData,
       currentPost: post,
       iteration: 1,
     };
@@ -98,12 +102,14 @@ const evaluateAndRevise1Step = createStep({
   inputSchema: z.object({
     topic: z.string(),
     viralInsights: workflowInputSchema.shape.viralInsights,
+    fullResearchData: z.string().optional(),
     currentPost: z.string(),
     iteration: z.number(),
   }),
   outputSchema: z.object({
     topic: z.string(),
     viralInsights: workflowInputSchema.shape.viralInsights,
+    fullResearchData: z.string().optional(),
     currentPost: z.string(),
     iteration: z.number(),
     evaluationHistory: z.array(z.object({
@@ -151,7 +157,7 @@ const evaluateAndRevise1Step = createStep({
     console.log(`\n✍️ WRITE ITERATION 2: Revision based on feedback`);
     console.log(`📋 Feedback: ${evaluation.issues.join(', ')}`);
 
-    const revisionPrompt = buildWriterPrompt(inputData.viralInsights, {
+    const revisionPrompt = buildWriterPrompt(inputData.viralInsights, inputData.fullResearchData, {
       previousPost: inputData.currentPost,
       feedback: evaluation.issues,
       suggestions: evaluation.suggestions,
@@ -165,6 +171,7 @@ const evaluateAndRevise1Step = createStep({
     return {
       topic: inputData.topic,
       viralInsights: inputData.viralInsights,
+      fullResearchData: inputData.fullResearchData,
       currentPost: revisedPost,
       iteration: 2,
       evaluationHistory: [historyEntry],
@@ -183,6 +190,7 @@ const evaluateAndRevise2Step = createStep({
   inputSchema: z.object({
     topic: z.string(),
     viralInsights: workflowInputSchema.shape.viralInsights,
+    fullResearchData: z.string().optional(),
     currentPost: z.string(),
     iteration: z.number(),
     evaluationHistory: z.array(z.object({
@@ -197,6 +205,7 @@ const evaluateAndRevise2Step = createStep({
   outputSchema: z.object({
     topic: z.string(),
     viralInsights: workflowInputSchema.shape.viralInsights,
+    fullResearchData: z.string().optional(),
     currentPost: z.string(),
     iteration: z.number(),
     evaluationHistory: z.array(z.object({
@@ -249,7 +258,7 @@ const evaluateAndRevise2Step = createStep({
     console.log(`\n✍️ WRITE ITERATION 3: FINAL revision`);
     console.log(`📋 Feedback: ${evaluation.issues.join(', ')}`);
 
-    const revisionPrompt = buildWriterPrompt(inputData.viralInsights, {
+    const revisionPrompt = buildWriterPrompt(inputData.viralInsights, inputData.fullResearchData, {
       previousPost: inputData.currentPost,
       feedback: evaluation.issues,
       suggestions: evaluation.suggestions,
@@ -264,6 +273,7 @@ const evaluateAndRevise2Step = createStep({
     return {
       topic: inputData.topic,
       viralInsights: inputData.viralInsights,
+      fullResearchData: inputData.fullResearchData,
       currentPost: revisedPost,
       iteration: 3,
       evaluationHistory: updatedHistory,
@@ -282,6 +292,7 @@ const finalEvaluationStep = createStep({
   inputSchema: z.object({
     topic: z.string(),
     viralInsights: workflowInputSchema.shape.viralInsights,
+    fullResearchData: z.string().optional(),
     currentPost: z.string(),
     iteration: z.number(),
     evaluationHistory: z.array(z.object({
@@ -352,6 +363,7 @@ const finalEvaluationStep = createStep({
 
 function buildWriterPrompt(
   insights: z.infer<typeof workflowInputSchema>['viralInsights'],
+  fullResearchData: string | undefined,
   revision: {
     previousPost: string;
     feedback: string[];
@@ -359,21 +371,42 @@ function buildWriterPrompt(
     isFinalAttempt?: boolean;
   } | null
 ): string {
-  const basePrompt = `Create a viral LinkedIn post using these insights:
+  const basePrompt = `Create a viral LinkedIn post using these insights AND the full research context:
 
-SHOCKING STATS:
+SHOCKING STATS (Use these as hooks):
 ${insights.shockingStats.map(s => `• ${s.stat} - ${s.context}`).join('\n')}
 
-VIRAL ANGLES:
+VIRAL ANGLES (Use these for structure):
 ${insights.viralAngles.map(a => `• Hook: "${a.hook}" - ${a.supportingData || ''}`).join('\n')}
 
 KEY NUMBERS:
 ${Object.entries(insights.keyNumbers).map(([k, v]) => `• ${k}: ${v}`).join('\n')}
 
-NARRATIVE:
+NARRATIVE FRAMEWORK:
 ${insights.narrativeSummary}
 
-Write the post now. Just the post text, nothing else.`;
+${fullResearchData ? `
+===== FULL RESEARCH CONTEXT FOR DEPTH =====
+You have access to ALL the original research below. Use it to add:
+- Historical context and trends
+- Root cause mechanisms (WHY things are happening)
+- Industry comparisons and benchmarks
+- Specific examples and case studies
+- Expert analysis and commentary
+
+${fullResearchData}
+===== END RESEARCH CONTEXT =====
+
+INSTRUCTIONS:
+1. Use Maya's insights above for STRUCTURE and HOOKS
+2. Use the full research below for DEPTH and ANALYSIS
+3. Add historical context: "compared to 2019" or "this trend started when"
+4. Explain WHY mechanisms: "this happens because..." 
+5. Include industry context: "unlike Chick-fil-A" or "compared to other chains"
+6. Reference specific examples from the research
+` : ''}
+
+Write a sophisticated LinkedIn post that would impress a Wharton MBA restaurant analyst. Just the post text, nothing else.`;
 
   if (!revision) {
     return basePrompt;

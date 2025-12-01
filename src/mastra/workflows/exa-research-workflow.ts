@@ -16,6 +16,8 @@ import { alexExa } from '../agents/exa-agents/alex-exa';
 import { davidExa } from '../agents/exa-agents/david-exa';
 import { strategistExa } from '../agents/exa-agents/strategist-exa';
 import { mayaExa } from '../agents/exa-agents/maya-exa';
+import * as fs from 'fs';
+import * as path from 'path';
 
 // ============================================================================
 // SCHEMAS
@@ -706,6 +708,49 @@ ${inputData.round3Data.davidReport}
 
     console.log(`✅ Combined ${totalQueries} queries + 3 reports`);
     console.log(`📏 Total research: ${combinedResearch.length} characters`);
+
+    // === SAVE FULL RESEARCH DATA LOCALLY ===
+    const topicSlug = inputData.topic
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .substring(0, 50);
+    const timestamp = new Date().toISOString().split('T')[0];
+    const filename = `full-research-${topicSlug}-${timestamp}.json`;
+    const savePath = path.join(process.cwd(), 'research-data', filename);
+    
+    const dataToSave = {
+      topic: inputData.topic,
+      generatedAt: new Date().toISOString(),
+      totalQueries,
+      totalResearchReports: 3,
+      totalCharacters: combinedResearch.length,
+      combinedResearch,
+      roundBreakdown: {
+        round1: {
+          alexData: inputData.round1Data.alexData,
+          davidReport: inputData.round1Data.davidReport,
+          queryCount: inputData.round1Data.queryCount,
+        },
+        round2: {
+          alexData: inputData.round2Data.alexData,
+          davidReport: inputData.round2Data.davidReport,
+          queryCount: inputData.round2Data.queryCount,
+        },
+        round3: {
+          alexData: inputData.round3Data.alexData,
+          davidReport: inputData.round3Data.davidReport,
+          queryCount: inputData.round3Data.queryCount,
+        },
+      },
+    };
+
+    try {
+      fs.writeFileSync(savePath, JSON.stringify(dataToSave, null, 2));
+      console.log(`💾 SAVED: Full research data to ${filename}`);
+    } catch (err) {
+      console.log(`⚠️ Could not save research data: ${err}`);
+    }
+    // === END SAVE ===
 
     return {
       topic: inputData.topic,

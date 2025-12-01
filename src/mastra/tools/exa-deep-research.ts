@@ -19,7 +19,7 @@ const getExaClient = () => {
  */
 export const exaDeepResearchTool = createTool({
   id: "exa-deep-research",
-  description: "Conduct comprehensive QSR research using expert-crafted prompts. Use this when you need deep analysis of mechanisms, detailed comparisons, or thorough investigation of business dynamics. Each research takes 60-120 seconds but provides extensive analysis.",
+  description: "Conduct comprehensive QSR research using expert-crafted prompts. Use this when you need deep analysis of mechanisms, detailed comparisons, or thorough investigation of business dynamics. Each research takes 60-240 seconds but provides extensive analysis.",
   
   inputSchema: z.object({
     prompt: z
@@ -30,7 +30,7 @@ export const exaDeepResearchTool = createTool({
     
     researchOptions: z.object({
       model: z.enum(["exa-research-fast", "exa-research-pro"]).default("exa-research-fast").describe("Research model to use"),
-      maxTimeoutMs: z.number().default(120000).describe("Maximum time to wait (120 seconds)"),
+      maxTimeoutMs: z.number().default(240000).describe("Maximum time to wait (240 seconds)"),
       pollIntervalMs: z.number().default(5000).describe("How often to check status (5 seconds)"),
       maxRetries: z.number().default(2).describe("Number of retries for failed research"),
     }).optional().describe("Optional configuration for deep research"),
@@ -55,7 +55,7 @@ export const exaDeepResearchTool = createTool({
     const { prompt, researchOptions = {} } = context;
     const { 
       model = "exa-research-fast",
-      maxTimeoutMs = 120000,
+      maxTimeoutMs = 240000,
       pollIntervalMs = 5000,
       maxRetries = 2 
     } = researchOptions;
