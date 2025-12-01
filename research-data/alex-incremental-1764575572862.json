@@ -1,0 +1,37 @@
+{
+  "runId": "alex-incremental-1764575572862",
+  "timestamp": "2025-12-01T07:52:55.286Z",
+  "alexData": {
+    "queries": [
+      "What is Taco Bell's total revenue in 2024?",
+      "What is Taco Bell's operating income in 2024?",
+      "What is Taco Bell's profit per store in 2024?"
+    ],
+    "results": [
+      "Taco Bell total revenue: $7.55B (2024) [Source: meatpoultry.com - https://www.meatpoultry.com/articles/31454-taco-bell-profit-growth-shown-in-latest-reporting]",
+      "Taco Bell operating income: $1B (2024) [Source: Taco Bell.com - https://www.tacobell.com/newsroom/taco-bell-unveils-bold-business-strategy-for-relentlessly-innovative-future]",
+      "Taco Bell profit per store: $550K (2024) [Source: qsrmagazine.com - https://www.qsrmagazine.com/growth/inside-taco-bells-aggressive-strategy-to-double-profits-reach-3-million-auv-and-surpass-10000-units]"
+    ],
+    "insights": []
+  },
+  "davidData": {
+    "research": [],
+    "mechanisms": [],
+    "insights": []
+  },
+  "mayaData": {
+    "synthesis": [],
+    "calculations": [],
+    "insights": []
+  },
+  "marcusDecisions": {
+    "orchestration": [],
+    "iterations": [],
+    "posts": []
+  },
+  "jamesEvaluations": {
+    "feedback": [],
+    "approvals": [],
+    "scores": []
+  }
+}

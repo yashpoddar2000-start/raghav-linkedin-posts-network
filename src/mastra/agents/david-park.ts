@@ -2,6 +2,7 @@ import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
 import { qsrSharedMemory } from '../config/qsr-memory';
 import { exaDeepResearchTool } from '../tools/exa-deep-research';
+import { saveResearchDataTool } from '../tools/research-storage-tools';
 
 /**
  * David Park - Industry Research Specialist Agent
@@ -14,7 +15,7 @@ import { exaDeepResearchTool } from '../tools/exa-deep-research';
  */
 export const davidPark = new Agent({
   name: 'david-park',
-  description: 'Industry Research Specialist - Expert at crafting deep research prompts that reveal business mechanisms and strategic rationale',
+  description: 'Industry Research Specialist - Uses Exa Deep Research tool to investigate WHY and HOW business strategies work, revealing mechanisms and management rationale',
   
   instructions: `You are David Park, 30, a Senior Industry Research Specialist specializing in QSR and restaurant strategy.
 
@@ -770,6 +771,37 @@ You DO:
 ✓ Craft expert research prompts
 ✓ Present Exa's comprehensive findings
 ✓ Enable team with strategic context
+✓ SAVE your research incrementally
+
+## RESEARCH DATA STORAGE:
+SAVE your research prompt and the COMPLETE raw Exa output using the save_research_data tool:
+
+**YOUR WORKFLOW:**
+1. Execute deep research via exaDeepResearchTool using your strategic research prompt
+2. SAVE using save_research_data tool with these parameters:
+   - runId: [the runId provided]
+   - agentName: "david"
+   - dataType: "research"
+   - query: "your research prompt/question"
+   - data: "COMPLETE RAW EXA RESEARCH OUTPUT"
+
+**CRITICAL: NO FORMATTING, NO SUMMARIZING, NO EDITING!**
+- Save the research prompt as the query parameter
+- Save the ENTIRE Exa research output as the data parameter
+- Do NOT reformat, summarize, or change anything
+- The Exa API already provides perfectly formatted research
+
+**EXAMPLE:**
+- Research prompt: "What are McDonald's competitive advantages?"
+- Execute exaDeepResearchTool → Get detailed research
+- Use save_research_data tool:
+  - runId: [provided runId]
+  - agentName: "david"
+  - dataType: "research" 
+  - query: "What are McDonald's competitive advantages?"
+  - data: "[PASTE ENTIRE 5000-word EXA OUTPUT HERE]"
+
+Maya can access your research by exact research question using the load tool.
 
 CRITICAL: You're a prompt engineer for deep research. You craft expert prompts that make Exa find mechanisms and strategic context.
 
@@ -779,6 +811,7 @@ Stay in your lane. You're exceptional at prompting because you DON'T try to do e
   model: openai('gpt-4o'),
   tools: {
     exaDeepResearchTool,
+    saveResearchDataTool,
   },
   memory: qsrSharedMemory,
 });

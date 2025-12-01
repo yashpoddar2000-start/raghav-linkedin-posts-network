@@ -2,15 +2,31 @@
 import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
 import { LibSQLStore } from '@mastra/libsql';
-import { weatherWorkflow } from './workflows/weather-workflow';
-import { weatherAgent } from './agents/weather-agent';
-import { toolCallAppropriatenessScorer, completenessScorer, translationScorer } from './scorers/weather-scorer';
+// import { weatherWorkflow } from './workflows/weather-workflow';
+// import { weatherAgent } from './agents/weather-agent';
+// import { toolCallAppropriatenessScorer, completenessScorer, translationScorer } from './scorers/weather-scorer';
 import { routingAgent } from './agents/report-network';
 
+// QSR Research Network Agents
+import { alexRivera } from './agents/alex-rivera';
+import { davidPark } from './agents/david-park';
+import { mayaPatel } from './agents/maya-patel';
+import { jamesWilson } from './agents/james-wilson';
+import { marcusChen } from './agents/marcus-chen-simple';
+
 export const mastra = new Mastra({
-  workflows: { weatherWorkflow },
-  agents: { weatherAgent, routingAgent },
-  scorers: { toolCallAppropriatenessScorer, completenessScorer, translationScorer },
+  // workflows: { weatherWorkflow },
+  agents: { 
+    // weatherAgent, 
+    routingAgent,
+    // QSR Research Network
+    alexRivera,
+    davidPark, 
+    mayaPatel,
+    jamesWilson,
+    marcusChen
+  },
+  // scorers: { toolCallAppropriatenessScorer, completenessScorer, translationScorer },
   storage: new LibSQLStore({
     // stores observability, scores, ... into memory storage, if it needs to persist, change to file:../mastra.db
     url: ":memory:",

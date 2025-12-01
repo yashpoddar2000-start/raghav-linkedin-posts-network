@@ -1,0 +1,35 @@
+{
+  "runId": "david-test-1764575844027",
+  "timestamp": "2025-12-01T07:57:30.753Z",
+  "alexData": {
+    "queries": [],
+    "results": [],
+    "insights": []
+  },
+  "davidData": {
+    "research": [
+      "What are the strategic mechanisms behind Chipotle's success? Focus on 2-3 key strategic areas."
+    ],
+    "mechanisms": [
+      "1. Operational Systems: Advanced operational systems like location-based technology and AI for food safety enhance efficiency and quality control.\n2. Supply Chain Advantages: DNA-based ingredient testing and AI-driven supply chain technologies improve safety, reduce costs, and ensure high quality.\n3. Technology Integration: Deployment of automation equipment and advanced supply chain management platforms increases operational efficiency and customer experience."
+    ],
+    "insights": [
+      "Chipotle's success is driven by advanced operational systems, strategic supply chain management, and technology integration. These mechanisms enhance efficiency, quality, and customer experience, providing a competitive edge in the fast-casual industry."
+    ]
+  },
+  "mayaData": {
+    "synthesis": [],
+    "calculations": [],
+    "insights": []
+  },
+  "marcusDecisions": {
+    "orchestration": [],
+    "iterations": [],
+    "posts": []
+  },
+  "jamesEvaluations": {
+    "feedback": [],
+    "approvals": [],
+    "scores": []
+  }
+}

@@ -2,6 +2,7 @@ import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
 import { qsrSharedMemory } from '../config/qsr-memory';
 import { exaAnswerTool } from '../tools/exa-answer';
+import { saveResearchDataTool } from '../tools/research-storage-tools';
 
 /**
  * Alex Rivera - Senior Data Analyst Agent
@@ -14,7 +15,7 @@ import { exaAnswerTool } from '../tools/exa-answer';
  */
 export const alexRivera = new Agent({
   name: 'alex-rivera',
-  description: 'Senior Data Analyst - Expert at finding exact financial and operational metrics from reliable sources',
+  description: 'Senior Data Analyst - Uses Exa Answer tool to find exact QSR financial metrics, comparisons, and operational data from reliable sources',
   
   instructions: `You are Alex Rivera, 26, a Senior Data Analyst specializing in QSR and restaurant industry research.
 
@@ -538,6 +539,31 @@ You DO:
 ✓ VERIFY sources are authoritative
 ✓ STRUCTURE data for analysis
 ✓ DELIVER with precision
+✓ SAVE your findings using the research data storage tool
+
+## RESEARCH DATA STORAGE:
+SAVE each query and its result as a key-value pair using the save_research_data tool:
+
+**FOR EACH QUERY-RESULT PAIR:**
+After executing a query and getting the result, use save_research_data tool:
+- runId: [the runId provided]
+- agentName: "alex"
+- dataType: "research"
+- query: "your exact query"
+- data: "the result with source"
+
+**EXAMPLE WORKFLOW:**
+1. Execute query: "What is McDonald's total revenue in 2024?"
+2. Get result: "$25.92 billion [Source: Macrotrends]"
+3. Save using save_research_data tool with parameters:
+   - runId: [provided runId]
+   - agentName: "alex"
+   - dataType: "research"
+   - query: "What is McDonald's total revenue in 2024?"
+   - data: "$25.92 billion [Source: Macrotrends - https://www.macrotrends.net/stocks/charts/MCD/mcdonalds/revenue]"
+4. Repeat for each query
+
+This creates clean query-result pairs that Maya can access by exact query text.
 
 Then you wait for the next instruction.
 
@@ -547,6 +573,7 @@ CRITICAL: Stay in your lane. You're exceptional at finding data because you DON'
   model: openai('gpt-4o'),
   tools: {
     exaAnswerTool,
+    saveResearchDataTool,
   },
   memory: qsrSharedMemory,
 });
