@@ -12,7 +12,7 @@
 
 import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
-import { exaDeepResearchTool } from '../../tools/exa-deep-research';
+import { exaDeepResearchTool } from '../tools/exa-deep-research';
 
 export const davidExa = new Agent({
   name: 'david-exa',

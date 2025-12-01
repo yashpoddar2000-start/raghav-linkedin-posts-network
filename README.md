@@ -1,131 +1,134 @@
-# Raghav LinkedIn Posts Network
+# QSR LinkedIn Content Pipeline
 
-A Mastra agent network for generating high-quality LinkedIn posts through iterative research, writing, and critique until approved.
+A Mastra workflow for generating high-quality, research-backed LinkedIn posts about the QSR (Quick Service Restaurant) industry.
 
-## Architecture
+## 🚀 Quick Start
 
-Built on Mastra's agent network framework with three specialized agents:
-
-**Research Agent** - Gathers comprehensive information on topics
-- Provides detailed bullet-point findings
-- Sources data from conversation context
-
-**Writing Agent** - Creates well-structured content
-- Writes in full paragraphs
-- Uses ONLY data from research (no fabrication)
-- Accesses research through shared memory
-
-**Critic Agent** - Evaluates content quality
-- Provides specific, actionable feedback
-- Uses o1 model for extended reasoning
-- Remembers previous feedback through memory
-
-**Routing Agent** - Orchestrates the workflow
-- Decides which agent to call next
-- Provides simple task instructions
-- Relies on memory for data transfer (not prompt engineering)
-
-## How It Works
-
-### Memory-Based Data Flow
-
-All agents share a common memory database:
-- `lastMessages: 100` - Full thread context available to all agents
-- `semanticRecall: topK 10` - Can search for specific data points
-- Same `threadId` - All agents see the same conversation
-- No explicit data passing - Memory handles inter-agent communication
-
-### Self-Improving Loop
-
-1. Research agent gathers information → Stored in memory
-2. Writing agent creates post → Reads research from memory
-3. Critic agent reviews → Provides feedback in memory
-4. If not approved → Research gathers more based on feedback
-5. Writing agent creates improved version → Sees all previous context
-6. Critic reviews again → Approves if improved
-7. Repeat until approval
-
-### Key Learnings
-
-**What Works:**
-- ✅ Shared memory for data transfer between agents
-- ✅ Simple orchestration (routing agent just coordinates)
-- ✅ Individual agents read context from memory automatically
-- ✅ Explicit instructions to prevent hallucination
-
-**What Doesn't:**
-- ❌ Prompting routing agent to "copy data" (redundant)
-- ❌ Workflows for dynamic content generation (too rigid)
-- ❌ Separate databases per agent (breaks shared context)
-
-## Setup
-
-1. Install dependencies:
 ```bash
+# Install dependencies
 npm install
+
+# Set environment variables in .env
+OPENAI_API_KEY=your-key
+EXA_API_KEY=your-key
+
+# Run the pipeline
+npx tsx src/tests/test-complete-pipeline.ts
 ```
 
-2. Set your OpenAI API key in `.env`:
+## 📊 Results
+
+**Pipeline Performance:**
+- ⏱️ Duration: ~7 minutes end-to-end
+- 💰 Cost: ~$0.20 per topic
+- ✅ Passes brutal Wharton MBA evaluator (78/100)
+- 💾 Research auto-saved for reuse
+
+**Sample Output:** (Chick-fil-A vs McDonald's topic)
+- 45 Exa Answer queries executed
+- 3 Exa Deep Research reports
+- 34K characters of research
+- Approved post in 3 iterations
+
+## 🏗️ Architecture
+
+```
+Topic → Research (3 rounds) → Taylor writes → James evaluates → Loop until approved
+           ↓                        ↓                ↓
+    Auto-saved locally      Full 40K research    Feedback for revision
+```
+
+### Agents
+
+| Agent | Role | Model |
+|-------|------|-------|
+| **Alex** | Financial queries via Exa Answer API | GPT-4o-mini |
+| **David** | Deep research via Exa Research API | GPT-4o-mini |
+| **Strategist** | Guides research direction | GPT-4o-mini |
+| **Taylor** | LinkedIn post writer | GPT-4o-mini |
+| **James** | Brutal evaluator (Wharton MBA) | GPT-4o |
+
+### Key Insight
+
+**Systems Thinking Breakthrough:** Taylor gets full 40K research (not compressed summary)
+- Before: 58/100 score (Maya compressed 40K → 1.4K)
+- After: 78/100 score (Taylor gets full context)
+- Improvement: **+34%**
+
+## 📁 Project Structure
+
+```
+├── src/
+│   ├── mastra/              # Production code
+│   │   ├── agents/          # 6 specialized agents
+│   │   ├── tools/           # Exa API integrations
+│   │   ├── workflows/       # Main pipeline
+│   │   └── evals/           # Content evaluation
+│   │
+│   ├── tests/               # Test runner
+│   └── archive/             # Legacy experiments
+│
+├── research-data/           # Auto-saved research (reusable)
+├── data/                    # Training data (Raghav's posts)
+└── docs/                    # Analysis documents
+```
+
+## 🔧 Configuration
+
+**Environment Variables:**
 ```bash
-OPENAI_API_KEY=your-key-here
+OPENAI_API_KEY=sk-...       # Required for agents
+EXA_API_KEY=...             # Required for research
 ```
 
-3. Run example:
-```bash
-npm run example
+**Research Settings:**
+- 15 queries per round × 3 rounds = 45 total
+- Deep research timeout: 240 seconds
+- Feedback loop: max 4 iterations
+- Auto-approve threshold: 75/100
+
+## 📈 Known Optimizations
+
+Current areas for improvement:
+1. **Query repetition:** ~20/45 queries are duplicates across rounds
+2. **Strategist guidance:** Too vague, should give specific query directions
+3. **Context passing:** Alex should see previous queries to avoid duplicates
+
+**Expected gains:** Score 85-90+ with same or fewer queries
+
+## 🗂️ Research Data
+
+All research auto-saves to `research-data/`:
+```
+full-research-{topic-slug}-{date}.json
 ```
 
-4. Or start dev server:
-```bash
-npm run dev
-```
+This allows:
+- Reusing research without API calls
+- Debugging pipeline issues
+- A/B testing different writing prompts
 
-## Configuration
+## 📚 Evolution
 
-**Memory Settings** (`src/mastra/agents/report-network.ts`):
-```typescript
-options: {
-  lastMessages: 100,  // Keeps full thread context
-  semanticRecall: {
-    topK: 10,         // Retrieves relevant past messages
-    messageRange: 5,  // Context around matches
-  },
-}
-```
+This project evolved through multiple approaches:
 
-**Context Window Capacity:**
-- GPT-4o: 128k tokens
-- ~5,500 tokens per iteration
-- **Can handle 15-20 iterations** safely
-- Perfect for quality content generation
+1. **Agent Network** (original) - Shared memory, routing agent
+2. **Complex Workflows** - Multi-phase with Maya synthesis
+3. **Simple Workflow** (current) - Direct research → write → evaluate
 
-## Production Use
+The current approach won because:
+- ✅ Simpler debugging
+- ✅ Full research context to writer
+- ✅ Clear feedback loop
+- ✅ Auto-save at each step
 
-For production LinkedIn post generation:
+## 🚀 Next Steps
 
-1. **Update agents** with Raghav's voice and style preferences
-2. **Add web search tools** to research agent for real-time data
-3. **Configure critic** with specific quality criteria
-4. **Add post formatting** requirements to writing agent
-5. **Scale with different threadIds** for different post topics
+1. Fix query repetition (pass previous queries to Alex)
+2. Make strategist ultra-specific
+3. Add more topics and tune prompts
+4. Deploy as API endpoint
 
-## Architecture Decisions
+---
 
-**Why Agent Network (not Workflow):**
-- Dynamic routing based on content quality
-- Flexible iteration count (until approved)
-- LLM-driven decisions (not hardcoded steps)
-
-**Why Shared Memory (not explicit passing):**
-- Cleaner architecture
-- Automatic context management
-- Agents decide what data they need
-
-**Why o1 for Critic:**
-- Extended reasoning capabilities
-- Better evaluation quality
-- Can track reasoning events
-
-## Next Steps
-
-Ready to build the production LinkedIn post network! 🚀
+Built with [Mastra](https://mastra.ai) 🤖

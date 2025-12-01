@@ -7,7 +7,7 @@
 
 import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
-import { exaAnswerTool } from '../../tools/exa-answer';
+import { exaAnswerTool } from '../tools/exa-answer';
 
 export const alexExa = new Agent({
   name: 'alex-exa',

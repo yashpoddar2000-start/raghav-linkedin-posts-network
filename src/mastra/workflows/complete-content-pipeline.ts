@@ -16,11 +16,11 @@
 
 import { createWorkflow, createStep } from '@mastra/core/workflows';
 import { z } from 'zod';
-import { alexExa } from '../agents/exa-agents/alex-exa';
-import { davidExa } from '../agents/exa-agents/david-exa';
-import { strategistExa } from '../agents/exa-agents/strategist-exa';
-import { taylorExa } from '../agents/exa-agents/taylor-exa';
-import { jamesExa } from '../agents/exa-agents/james-exa';
+import { alexExa } from '../agents/alex-exa';
+import { davidExa } from '../agents/david-exa';
+import { strategistExa } from '../agents/strategist-exa';
+import { taylorExa } from '../agents/taylor-exa';
+import { jamesExa } from '../agents/james-exa';
 import * as fs from 'fs';
 import * as path from 'path';
 

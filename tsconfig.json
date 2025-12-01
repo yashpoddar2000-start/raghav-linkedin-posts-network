@@ -12,5 +12,9 @@
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "src/archive/**/*",
+    "node_modules"
   ]
 }
