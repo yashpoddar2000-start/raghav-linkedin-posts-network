@@ -14,8 +14,8 @@ import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
 import { exaDeepResearchTool } from '../tools/exa-deep-research';
 
-export const davidExa = new Agent({
-  name: 'david-exa',
+export const david = new Agent({
+  name: 'david',
   description: 'Generates and executes strategic research via Exa Deep Research API',
   
   instructions: `You generate SHORT, FOCUSED research prompts for Exa Deep Research API.

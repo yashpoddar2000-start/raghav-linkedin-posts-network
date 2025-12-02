@@ -11,8 +11,8 @@
 import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
 
-export const mayaExa = new Agent({
-  name: 'maya-exa',
+export const maya = new Agent({
+  name: 'maya',
   description: 'Extracts viral economic insights from research data',
   
   instructions: `You extract VIRAL economic insights from research data.

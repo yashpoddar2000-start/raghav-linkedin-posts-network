@@ -1,5 +1,5 @@
 /**
- * Strategist - Pattern Analysis Agent (Simplified)
+ * Marcus - Pattern Analysis Agent (Simplified)
  * 
  * Function: Analyze research findings and provide guidance for next round
  * No persona. No complexity. Just analysis.
@@ -9,8 +9,8 @@
 import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
 
-export const strategistExa = new Agent({
-  name: 'strategist-exa',
+export const marcus = new Agent({
+  name: 'marcus',
   description: 'Analyzes research data and provides guidance for next round',
   
   instructions: `You analyze research findings and provide guidance.

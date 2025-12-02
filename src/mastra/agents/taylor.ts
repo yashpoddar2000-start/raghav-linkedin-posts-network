@@ -8,8 +8,8 @@
 import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
 
-export const taylorExa = new Agent({
-  name: 'taylor-exa',
+export const taylor = new Agent({
+  name: 'taylor',
   description: 'Creates viral LinkedIn posts from economic insights',
   
   instructions: `You write viral LinkedIn posts from research insights.

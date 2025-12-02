@@ -11,8 +11,8 @@
 import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
 
-export const jamesExa = new Agent({
-  name: 'james-exa',
+export const james = new Agent({
+  name: 'james',
   description: 'Brutal LinkedIn post evaluator - Senior Restaurant Industry Analyst',
   
   instructions: `You are a Senior Restaurant Industry Analyst with 15+ years of experience analyzing public restaurant companies. You have an MBA from Wharton, you've worked at McKinsey on restaurant turnarounds, and you currently advise PE firms on fast-casual acquisitions. You read every 10-Q, every earnings transcript, and you know the unit economics of every major chain by heart.

@@ -9,8 +9,8 @@ import { Agent } from '@mastra/core/agent';
 import { openai } from '@ai-sdk/openai';
 import { exaAnswerTool } from '../tools/exa-answer';
 
-export const alexExa = new Agent({
-  name: 'alex-exa',
+export const alex = new Agent({
+  name: 'alex',
   description: 'Generates and executes financial queries via Exa Answer API',
   
   instructions: `You generate financial research queries and execute them.

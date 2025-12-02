@@ -9,11 +9,11 @@
  * - Research auto-saved to research-data/
  * 
  * Agents:
- * - alexExa: Financial queries via Exa Answer API
- * - davidExa: Deep research via Exa Deep Research API
- * - strategistExa: Research direction guidance
- * - taylorExa: LinkedIn post writer
- * - jamesExa: Brutal evaluator (Wharton MBA criteria)
+ * - alex: Financial queries via Exa Answer API
+ * - david: Deep research via Exa Deep Research API
+ * - marcus: Research direction guidance
+ * - taylor: LinkedIn post writer
+ * - james: Brutal evaluator (Wharton MBA criteria)
  */
 
 import { Mastra } from '@mastra/core/mastra';
@@ -25,12 +25,12 @@ import { completeContentPipeline } from './workflows/complete-content-pipeline';
 
 // Production Agents
 import { 
-  alexExa, 
-  davidExa, 
-  strategistExa, 
-  mayaExa,
-  taylorExa, 
-  jamesExa 
+  alex, 
+  david, 
+  marcus, 
+  maya,
+  taylor, 
+  james 
 } from './agents';
 
 export const mastra = new Mastra({
@@ -38,12 +38,12 @@ export const mastra = new Mastra({
     completeContentPipeline,
   },
   agents: { 
-    alexExa,
-    davidExa,
-    strategistExa,
-    mayaExa,
-    taylorExa,
-    jamesExa,
+    alex,
+    david,
+    marcus,
+    maya,
+    taylor,
+    james,
   },
   storage: new LibSQLStore({
     url: ":memory:",

@@ -16,11 +16,11 @@
 
 import { createWorkflow, createStep } from '@mastra/core/workflows';
 import { z } from 'zod';
-import { alexExa } from '../agents/alex-exa';
-import { davidExa } from '../agents/david-exa';
-import { strategistExa } from '../agents/strategist-exa';
-import { taylorExa } from '../agents/taylor-exa';
-import { jamesExa } from '../agents/james-exa';
+import { alex } from '../agents/alex';
+import { david } from '../agents/david';
+import { marcus } from '../agents/marcus';
+import { taylor } from '../agents/taylor';
+import { james } from '../agents/james';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -66,7 +66,7 @@ function saveResearchData(topic: string, data: any): string {
 async function runAlexQueries(topic: string, guidance: string, round: number): Promise<{ data: string; count: number }> {
   console.log(`\n📊 ALEX Round ${round}: Executing queries via agent...`);
   
-  const result = await alexExa.generate(
+  const result = await alex.generate(
     `Research topic: "${topic}"
 ${guidance ? `Focus on: ${guidance}` : 'Round 1: Broad exploration'}
 
@@ -98,7 +98,7 @@ Generate 15 financial research queries and call the exa-bulk-answer tool.`,
 async function runDavidResearch(topic: string, guidance: string, round: number): Promise<string> {
   console.log(`\n🔬 DAVID Round ${round}: Deep research via agent...`);
   
-  const result = await davidExa.generate(
+  const result = await david.generate(
     `Research topic: "${topic}"
 ${guidance ? `Focus: ${guidance}` : 'Round 1: Broad strategic research'}
 
@@ -146,12 +146,12 @@ Write a viral LinkedIn post that would impress a Wharton MBA restaurant analyst.
 
 Output ONLY the post.`;
 
-  const result = await taylorExa.generate(prompt);
+  const result = await taylor.generate(prompt);
   return result.text || '';
 }
 
 async function jamesEvaluate(post: string, topic: string): Promise<{ score: number; issues: string[]; approved: boolean }> {
-  const result = await jamesExa.generate(`
+  const result = await james.generate(`
 Evaluate this LinkedIn post about "${topic}":
 
 ${post}
@@ -208,7 +208,7 @@ const completePipelineStep = createStep({
     totalQueries += alex1.count;
 
     // Get strategist guidance for round 2
-    const strat1 = await strategistExa.generate(
+    const strat1 = await marcus.generate(
       `Based on research about "${topic}", what should round 2 focus on? Be specific.`
     );
     const guidance2 = strat1.text?.substring(0, 200) || '';
@@ -221,7 +221,7 @@ const completePipelineStep = createStep({
     totalQueries += alex2.count;
 
     // Get strategist guidance for round 3
-    const strat2 = await strategistExa.generate(
+    const strat2 = await marcus.generate(
       `Based on 2 rounds of research about "${topic}", what gaps remain? What should round 3 focus on?`
     );
     const guidance3 = strat2.text?.substring(0, 200) || '';
