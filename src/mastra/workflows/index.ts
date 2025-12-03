@@ -1,16 +1,18 @@
 /**
  * Production Workflows - Clean Exports
  * 
- * Main workflow: complete-content-pipeline
- * 
- * Flow: Topic → Research (45 queries + 3 deep) → Taylor writes → James evaluates → Approved Post
- * 
- * Features:
- * - Auto-saves research locally (research-data/)
- * - Feedback loop: max 4 iterations
- * - Brutal evaluation with Wharton MBA criteria
- * - ~7 min end-to-end, ~$0.20/topic
+ * Workflows:
+ * - researchPhase1: 3-round research with dountil loop
+ * - writingPhase2: Taylor writes, James evaluates with dountil loop
+ * - completeContentPipeline: Full topic → post pipeline (legacy)
  */
 
+// Phase 1: Research workflow with dountil loop
+export { researchPhase1 } from './research-phase1';
+
+// Phase 2: Writing workflow with dountil loop
+export { writingPhase2 } from './writing-phase2';
+
+// Full pipeline (legacy - uses inline logic)
 export { completeContentPipeline } from './complete-content-pipeline';
 

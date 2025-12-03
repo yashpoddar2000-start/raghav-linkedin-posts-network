@@ -20,8 +20,10 @@ import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
 import { LibSQLStore } from '@mastra/libsql';
 
-// Production Workflow
+// Production Workflows
 import { completeContentPipeline } from './workflows/complete-content-pipeline';
+import { researchPhase1 } from './workflows/research-phase1';
+import { writingPhase2 } from './workflows/writing-phase2';
 
 // Production Agents
 import { 
@@ -36,6 +38,8 @@ import {
 export const mastra = new Mastra({
   workflows: { 
     completeContentPipeline,
+    researchPhase1,
+    writingPhase2,
   },
   agents: { 
     alex,
