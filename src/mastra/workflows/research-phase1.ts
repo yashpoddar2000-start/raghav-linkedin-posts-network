@@ -23,6 +23,7 @@ export const researchPhase1 = createWorkflow({
   
   inputSchema: z.object({
     topic: z.string(),
+    promptOnly: z.boolean().optional().default(false),
   }),
   
   outputSchema: z.object({
@@ -34,6 +35,7 @@ export const researchPhase1 = createWorkflow({
   // Initialize round state
   .map(async ({ inputData }) => ({
     topic: inputData.topic,
+    promptOnly: inputData.promptOnly || false,
     round: 1,
     guidance: '',
     rounds: [] as { alexQueries: string; davidReport: string; queryCount: number }[],

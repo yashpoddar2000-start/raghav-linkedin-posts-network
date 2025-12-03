@@ -20,6 +20,7 @@ export const combineResearchStep = createStep({
   
   inputSchema: z.object({
     topic: z.string(),
+    promptOnly: z.boolean(),
     round: z.number(),
     guidance: z.string(),
     rounds: z.array(roundDataSchema),

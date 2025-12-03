@@ -25,6 +25,9 @@ import { completeContentPipeline } from './workflows/complete-content-pipeline';
 import { researchPhase1 } from './workflows/research-phase1';
 import { writingPhase2 } from './workflows/writing-phase2';
 
+// Prompt-Only Workflows (for testing and optimization)
+import { researchPhase1PromptOnly } from './workflows/prompt-only';
+
 // Production Agents
 import { 
   alex, 
@@ -35,11 +38,19 @@ import {
   james 
 } from './agents';
 
+// Prompt-Only Agents (for testing and optimization)
+import {
+  alexPromptOnly,
+  davidPromptOnly
+} from './agents/prompt-only';
+
 export const mastra = new Mastra({
   workflows: { 
     completeContentPipeline,
     researchPhase1,
     writingPhase2,
+    // Prompt-only workflows for testing
+    researchPhase1PromptOnly,
   },
   agents: { 
     alex,
@@ -48,6 +59,9 @@ export const mastra = new Mastra({
     maya,
     taylor,
     james,
+    // Prompt-only agents for testing
+    alexPromptOnly,
+    davidPromptOnly,
   },
   storage: new LibSQLStore({
     url: ":memory:",

@@ -8,12 +8,16 @@ import 'dotenv/config';
 import { mastra } from '../mastra';
 
 async function testResearchPhase1() {
+  // Check for --prompt-only flag
+  const promptOnly = process.argv.includes('--prompt-only');
+  
   console.log('\n' + '='.repeat(70));
-  console.log('TEST: Research Phase 1 Workflow');
+  console.log(`TEST: Research Phase 1 Workflow ${promptOnly ? '(PROMPT-ONLY MODE)' : ''}`);
   console.log('='.repeat(70));
   
   const topic = 'Chick-fil-A vs McDonald\'s revenue per store';
   console.log(`\nTopic: ${topic}`);
+  console.log(`Mode: ${promptOnly ? 'PROMPT-ONLY (no Exa API calls)' : 'FULL (with Exa API calls)'}`);
   
   const startTime = Date.now();
   
@@ -24,7 +28,7 @@ async function testResearchPhase1() {
     
     // Start the workflow
     const result = await run.start({
-      inputData: { topic },
+      inputData: { topic, promptOnly },
     });
     
     const duration = Math.round((Date.now() - startTime) / 1000);
