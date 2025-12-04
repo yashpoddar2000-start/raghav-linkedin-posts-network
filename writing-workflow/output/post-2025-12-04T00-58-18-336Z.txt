@@ -1,0 +1,74 @@
+Why is Chipotle's cheapest piece of capex – a $75K digital pickup lane – arguably generating better returns than Taco Bell's multi-million-dollar Defy prototypes or Wingstop's entire off-premise boxes?
+
+Chipotlane: $75,000-$100,000 incremental cost.
+Taco Bell Defy: Sits at the high end of Taco Bell's $575K-$3M build range.
+Wingstop: $315K-$975K for a complete off-premise unit.
+
+But here's what that capital efficiency created:
+
+Chipotlane stores: 10-15% higher sales than traditional locations.
+On a $3M+ base, that's $300K-$450K incremental revenue.
+
+The math gets interesting when you layer the effects:
+
+10-15% lift on a $3M box = $300K-$450K more sales.
+At 25% flow-through, that's $75K-$112K incremental profit from volume alone.
+
+Add 200 basis points higher restaurant-level margins on the new, higher revenue base (say $3.3M-$3.45M), and you add another ~$66K-$69K.
+
+Realistically, you're talking $140K-$180K incremental profit per Chipotlane store.
+
+Across 1,068 Chipotlanes, that's $150M-$190M of extra annual profit for $80M-$100M of incremental capex – a payback well under a year at the high end of the impact range.
+
+Compare that to Chipotle's new-unit ROIC of ~19%.
+
+The best investment at Chipotle isn't opening another restaurant; it's pouring a lane and adding a second makeline to the ones they already have.
+
+Now look at the competition:
+
+Wingstop spends $315K-$975K to build a 1,500-2,200 sq ft off-prem native box: $2.1M AUV, ~25.5% restaurant-level margins, payback under 2 years.
+
+Chipotle spends $75K-$100K on a lane and digital makeline upgrades to add $140K-$180K of profit to a $3M+ box – a comparable or better payback without changing the box at all.
+
+The difference in approach:
+
+Taco Bell Defy: ~2:32 from order to handoff in mystery shop studies.
+Chipotlane: sub-30-second dwell time at the window for pre-paid digital orders.
+
+Taco Bell is spending millions to compress the entire drive-thru journey. Chipotle is spending ~$100K to move the ordering and payment piece upstream into the app – so the 'drive-thru' is basically just a pickup.
+
+Defy's two-story, four-lane, lift-driven format sits at the upper end of Taco Bell's $575K-$3M build range. It's a spectacular prototype – but capital-intensive and harder to roll out broadly.
+
+Chipotlane is boring concrete and stainless steel. That's exactly why over 1,000 locations already have it, and 80%+ of new builds include a lane. The economics work everywhere, not just at flagship sites.
+
+The constraint isn't the lane. It's the kitchen.
+
+Chipotle attacked it in order:
+• Split the workload: a separate Digital Makeline so in-store and digital orders don't cannibalize each other.
+• Add dual grills and automation (Autocado, Hyphen) to raise peak-hour throughput without exploding labor.
+• Only then does the lane make sense: you're not creating new orders you can't cook; you're diverting existing digital orders into a faster, cheaper pickup channel.
+
+That's why a $75K lane can behave like a multi-million-dollar remodel: it's sitting on top of a re-engineered kitchen.
+
+Off-premise now accounts for roughly three-quarters of restaurant traffic.
+
+Wingstop responded by building an off-prem native concept. Taco Bell built a next-gen prototype. Chipotle's move is quieter but more dangerous: retrofit a 2,500 sq ft fast-casual box to behave like an off-prem specialist with a few targeted pieces of capex.
+
+Three models, three strategies:
+
+Wingstop: Redesign the entire box around off-premise. 1,500-2,200 sq ft, minimal seating, 70.3% digital sales.
+
+Taco Bell Defy: Re-architect the drive-thru with verticality and technology.
+
+Chipotle: Keep the 2,500 sq ft box. Add a digital lane. Fix the kitchen constraint.
+
+Same footprint, same core team. More revenue per building.
+
+Digital orders at Chipotle now hit 36.7% in Q3 2025.
+80% of new builds include Chipotlanes.
+
+The flywheel: Chipotlane drives digital adoption → higher checks → better labor efficiency → margin expansion beyond just speed gains.
+
+Taco Bell and Wingstop are building new boxes to win off-premise.
+
+Chipotle's cash-on-cash economics rival – and arguably exceed – what Wingstop gets from building an entire restaurant, but as a bolt-on to a box that's already throwing off $3M+ in sales.

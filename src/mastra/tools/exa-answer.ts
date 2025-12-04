@@ -43,6 +43,11 @@ export const exaAnswerTool = createTool({
       .max(50)
       .describe("Array of research questions (1-50 queries). Each must be specific with dates."),
     
+    batchOptions: z.object({
+      maxRetries: z.number().default(3),
+      timeoutMs: z.number().default(30000),
+      maxConcurrency: z.number().default(10),
+    }).optional(),
   }),
 
   outputSchema: z.object({

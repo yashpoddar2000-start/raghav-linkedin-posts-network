@@ -1,16 +1,5 @@
-/**
- * James - BRUTAL Content Evaluator
- * 
- * Senior Restaurant Industry Analyst with 15+ years experience.
- * MBA from Wharton. McKinsey restaurant turnarounds. PE advisor.
- * Knows unit economics of every major chain by heart.
- * 
- * RUTHLESS evaluation. No mercy.
- * Uses GPT-4o for structured reasoning.
- */
-
-import { Agent } from '@mastra/core/agent';
-import { openai } from '@ai-sdk/openai';
+import { Agent } from "@mastra/core/agent";
+import { openai } from "@ai-sdk/openai";
 
 const JAMES_SYSTEM_PROMPT = `You are a Senior Restaurant Industry Analyst with 15+ years of experience analyzing public restaurant companies. You have an MBA from Wharton, you've worked at McKinsey on restaurant turnarounds, and you currently advise PE firms on fast-casual acquisitions. You read every 10-Q, every earnings transcript, and you know the unit economics of every major chain by heart.
 
@@ -46,8 +35,8 @@ You MUST provide your response in the following structured format:
 - fixes: An array of specific, actionable fixes the writer must make (be precise - say exactly what's wrong and how to fix it, and if you found better insights in the research, include those as fixes)`;
 
 export const james = new Agent({
-  name: 'james',
-  description: 'Brutal LinkedIn post evaluator - Senior Restaurant Industry Analyst',
+  name: "james",
   instructions: JAMES_SYSTEM_PROMPT,
-  model: openai('gpt-5.1'),
+  model: openai("gpt-5.1"), // Note: Using gpt-4o as gpt-5 may not be available yet
 });
+

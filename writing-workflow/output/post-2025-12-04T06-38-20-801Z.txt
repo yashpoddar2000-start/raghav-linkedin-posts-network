@@ -1,0 +1,78 @@
+Why does Chipotle's Chipotlane generate 10-20% higher sales than traditional locations?
+
+Digital-only lanes. No menu boards. No speakers.
+
+Average pickup time: under 30 seconds.
+
+But here's what that speed difference created:
+
+Chipotle's average unit volumes exceed $3M.
+Restaurants with Chipotlanes see 10-20% higher sales than those without.
+
+On a $3.0M base, that's +$300K to +$600K per store.
+
+Chipotlane incremental build cost: $75,000-$100,000.
+
+The math:
+
+$300K-$600K additional revenue × assume ~25% flow-through margin = $75K-$150K incremental profit.
+ROI on $100K investment: 75-150% year one.
+
+At $75-100K incremental investment and $300-600K incremental revenue at ~25% flow-through, Chipotlanes can pay back in under a year.
+
+Yet Taco Bell Defy spent at the high end of a $575K-$3M build range on vertical lifts and four-lane systems.
+
+Taco Bell Defy service time: 2 minutes 32 seconds.
+Chipotlane: 30 seconds.
+
+Taco Bell built complexity. Chipotle removed friction.
+
+Here's why it works:
+
+**Order commitment:** Chipotlanes handle only digital orders—they turn digital demand into physical throughput without tying up a cashier.
+
+**Labor leverage:** No order-taking at the window; the lane doesn't require its own cashier. Most of the extra volume runs through existing teams and the digital makeline.
+
+**Digital integration:** 35% of Chipotle's revenue is digital. (Chipotle and third-party analyses consistently cite 10-20% higher sales and ~200 bps higher restaurant-level margins for Chipotlane locations.)
+
+Traditional drive-thrus optimize for choice.
+Chipotlanes optimize for execution.
+
+The constraint creates the advantage:
+
+Wingstop: 65-70% digital sales, $1.59M-$2.1M AUV, ~25.5% margins. But pays delivery commissions on a big chunk of those transactions.
+
+Chipotle: A larger share of Chipotle's digital volume flows through its own app and website, so more of that off-premise check lands in Chipotle's P&L versus brands that lean heaviest on third-party marketplaces.
+
+If Chipotlanes are generating $300-600K more revenue per unit, that's $320-640M in additional system sales across 1,068 units—and $80-160M in incremental profit at a 25% flow-through.
+
+Compare the capital efficiency:
+
+Wingstop spends $259K-$912K to open a small, seat-less box that leans 65-70% digital—but pays delivery commissions on a big chunk of those transactions.
+
+Taco Bell spends at the high end of a $575K-$3M build range to experiment with Defy's multi-lane, lift-heavy design.
+
+Chipotle spends $75K-$100K per Chipotlane bolted onto a >$3M box and gets 10-20% more sales with better margins.
+
+Behind those 30-second pickups is more than a lane—the dual makeline, new dual grills, and automation tools (Hyphen, Autocado) are all about turning digital pre-orders into higher throughput without bloating labor.
+
+McDonald's designed a drive-thru that can take any order in real time.
+Chipotlane assumes the order was already made and paid for.
+
+One maximizes choice; the other maximizes execution.
+
+That constraint—*no ordering at the window*—is why Chipotlanes can deliver 10-20% more revenue on a $75-100K spend.
+
+The limitation IS the innovation.
+
+No menu to read. No order to place. No payment to process.
+
+Just verification and handoff.
+
+30 seconds.
+
+That's why 257 of Chipotle's 304 new locations in 2024 included Chipotlanes.
+
+Not because they're trendy.
+
+Because they generate 10-20% more revenue with minimal incremental labor—and ~200 bps higher restaurant-level margins.

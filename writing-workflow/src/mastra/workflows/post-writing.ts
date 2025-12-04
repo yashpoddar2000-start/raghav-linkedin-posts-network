@@ -1,19 +1,5 @@
-/**
- * Simple Writing Workflow
- * 
- * Uses a dountil loop for Taylor (write) → James (evaluate) iterations.
- * 
- * Loop continues until:
- * - BOTH ei_score >= 8 AND sc_score >= 8
- * - OR max iterations (5) reached
- * 
- * This workflow is based on the working writing-workflow implementation.
- */
-
-import { createWorkflow, createStep } from '@mastra/core/workflows';
-import { z } from 'zod';
-import * as fs from 'fs';
-import * as path from 'path';
+import { createWorkflow, createStep } from "@mastra/core/workflows";
+import { z } from "zod";
 
 // Schema for James's structured evaluation output
 export const evaluationSchema = z.object({
@@ -67,19 +53,19 @@ const MAX_ITERATIONS = 5;
  * 3. Returns updated state
  */
 export const writeAndEvaluateStep = createStep({
-  id: 'write-and-evaluate',
+  id: "write-and-evaluate",
   inputSchema: workflowStateSchema,
   outputSchema: workflowStateSchema,
   execute: async ({ inputData, mastra }) => {
     if (!mastra) {
-      throw new Error('Mastra instance not available');
+      throw new Error("Mastra instance not available");
     }
 
-    const taylor = mastra.getAgent('taylor');
-    const james = mastra.getAgent('james');
+    const taylor = mastra.getAgent("taylor");
+    const james = mastra.getAgent("james");
 
     if (!taylor || !james) {
-      throw new Error('Agents not found. Make sure taylor and james are registered.');
+      throw new Error("Agents not found. Make sure taylor and james are registered.");
     }
 
     const iteration = (inputData.iteration || 0) + 1;
@@ -100,9 +86,9 @@ export const writeAndEvaluateStep = createStep({
       };
     }
 
-    console.log(`\n${'='.repeat(60)}`);
+    console.log(`\n${"=".repeat(60)}`);
     console.log(`📝 ITERATION ${iteration}`);
-    console.log(`${'='.repeat(60)}`);
+    console.log(`${"=".repeat(60)}`);
     console.log(`📊 Current State:`);
     console.log(`   - Has draft: ${!!inputData.draft}`);
     console.log(`   - Critique history length: ${critiqueHistory.length}`);
@@ -116,7 +102,7 @@ export const writeAndEvaluateStep = createStep({
 
     if (!inputData.draft) {
       // First iteration: write from scratch
-      console.log('🖊️ Taylor: Writing first draft (no previous draft exists)...\n');
+      console.log("🖊️ Taylor: Writing first draft (no previous draft exists)...\n");
       taylorPrompt = `Write a LinkedIn post based on this research data.
 
 Don't write for virality. If the insight is strong, engagement will follow naturally.
@@ -141,7 +127,7 @@ Write the post now. No preamble, just the post content.`;
       // Revision: include critique history
       const lastCritique = critiqueHistory.at(-1);
       if (!lastCritique) {
-        throw new Error('Expected critique history for revision');
+        throw new Error("Expected critique history for revision");
       }
 
       console.log(`🔄 Taylor: Revising based on James's feedback (EI: ${lastCritique.ei_score}/10, SC: ${lastCritique.sc_score}/10)...\n`);
@@ -150,7 +136,7 @@ Write the post now. No preamble, just the post content.`;
       const previousMistakes = critiqueHistory
         .slice(0, -1)
         .flatMap((c) => c.fixes)
-        .join('\n- ');
+        .join("\n- ");
 
       taylorPrompt = `REVISION REQUEST
 
@@ -162,9 +148,9 @@ James's critique:
 ${lastCritique.critique}
 
 SPECIFIC FIXES REQUIRED (address ALL of these):
-${lastCritique.fixes.map((f, i) => `${i + 1}. ${f}`).join('\n')}
+${lastCritique.fixes.map((f, i) => `${i + 1}. ${f}`).join("\n")}
 
-${previousMistakes ? `\nPREVIOUS MISTAKES (don't repeat these):\n- ${previousMistakes}` : ''}
+${previousMistakes ? `\nPREVIOUS MISTAKES (don't repeat these):\n- ${previousMistakes}` : ""}
 
 === CURRENT DRAFT TO REVISE ===
 ${inputData.draft}
@@ -178,12 +164,12 @@ ${inputData.voice_example}
 Write the revised post now. Address every fix. No preamble, just the post content.`;
 
       // DEBUG: Print what Taylor is receiving
-      console.log('📋 TAYLOR\'S REVISION PROMPT:');
+      console.log("📋 TAYLOR'S REVISION PROMPT:");
       console.log(`   Previous scores: EI ${lastCritique.ei_score}/10, SC ${lastCritique.sc_score}/10`);
       console.log(`   Number of fixes to address: ${lastCritique.fixes.length}`);
-      console.log('\n   FIXES:');
+      console.log("\n   FIXES:");
       lastCritique.fixes.forEach((fix, i) => {
-        console.log(`   ${i + 1}. ${fix.substring(0, 150)}${fix.length > 150 ? '...' : ''}`);
+        console.log(`   ${i + 1}. ${fix.substring(0, 150)}${fix.length > 150 ? "..." : ""}`);
       });
       if (previousMistakes) {
         console.log(`\n   Previous mistakes to avoid: ${previousMistakes.substring(0, 200)}...`);
@@ -192,19 +178,19 @@ Write the revised post now. Address every fix. No preamble, just the post conten
     }
 
     // 2. Taylor writes/revises
-    console.log('⏳ Calling Taylor agent (this may take 20-60 seconds)...\n');
+    console.log("⏳ Calling Taylor agent (this may take 20-60 seconds)...\n");
     const taylorResponse = await taylor.generate([
-      { role: 'user', content: taylorPrompt },
+      { role: "user", content: taylorPrompt },
     ]);
     const newDraft = taylorResponse.text;
 
-    console.log('📄 Draft written. Length:', newDraft.length, 'characters');
-    console.log('\n📝 DRAFT PREVIEW (first 300 chars):');
+    console.log("📄 Draft written. Length:", newDraft.length, "characters");
+    console.log("\n📝 DRAFT PREVIEW (first 300 chars):");
     console.log(`   ${newDraft.substring(0, 300)}...\n`);
 
     // 3. James evaluates (with structured output)
-    console.log('🔍 James: Evaluating draft...');
-    console.log('⏳ Calling James agent (this may take 20-60 seconds)...\n');
+    console.log("🔍 James: Evaluating draft...");
+    console.log("⏳ Calling James agent (this may take 20-60 seconds)...\n");
 
     const jamesPrompt = `=== RESEARCH DATA (use this to fact-check AND find better insights) ===
 ${inputData.research}
@@ -224,7 +210,7 @@ Evaluate this post:
 Be brutal.`;
     
     const jamesResponse = await james.generate(
-      [{ role: 'user', content: jamesPrompt }],
+      [{ role: "user", content: jamesPrompt }],
       { output: evaluationSchema }
     );
 
@@ -234,11 +220,11 @@ Be brutal.`;
     console.log(`📝 Fixes required: ${evaluation.fixes.length}`);
     
     // DEBUG: Print James's full critique and fixes
-    console.log('\n🔍 JAMES\'S CRITIQUE:');
-    console.log(`   ${evaluation.critique.substring(0, 500)}${evaluation.critique.length > 500 ? '...' : ''}`);
-    console.log('\n   FIXES PROVIDED:');
+    console.log("\n🔍 JAMES'S CRITIQUE:");
+    console.log(`   ${evaluation.critique.substring(0, 500)}${evaluation.critique.length > 500 ? "..." : ""}`);
+    console.log("\n   FIXES PROVIDED:");
     evaluation.fixes.forEach((fix, i) => {
-      console.log(`   ${i + 1}. ${fix.substring(0, 150)}${fix.length > 150 ? '...' : ''}`);
+      console.log(`   ${i + 1}. ${fix.substring(0, 150)}${fix.length > 150 ? "..." : ""}`);
     });
     console.log();
 
@@ -262,7 +248,7 @@ Be brutal.`;
       iteration,
     };
 
-    console.log('📦 Returning state to next iteration:');
+    console.log("📦 Returning state to next iteration:");
     console.log(`   - Draft length: ${newDraft.length} chars`);
     console.log(`   - Critique history entries: ${updatedState.critique_history.length}`);
     console.log(`   - EI score: ${evaluation.ei_score}/10`);
@@ -275,11 +261,11 @@ Be brutal.`;
 });
 
 /**
- * Main workflow: loops until both scores >= 8
+ * Main workflow: loops until both scores >= 9
  */
-export const simpleWritingWorkflow = createWorkflow({
-  id: 'simple-writing',
-  inputSchema: workflowStateSchema,
+export const postWritingWorkflow = createWorkflow({
+  id: "post-writing",
+  inputSchema: workflowStateSchema, // Changed to use full state schema
   outputSchema: workflowOutputSchema,
 })
   .dountil(
@@ -290,7 +276,7 @@ export const simpleWritingWorkflow = createWorkflow({
       console.log(`\n🔄 LOOP CONDITION CHECK:`);
       console.log(`   EI score: ${inputData.current_ei_score}/10 (need >=8)`);
       console.log(`   SC score: ${inputData.current_sc_score}/10 (need >=8)`);
-      console.log(`   Passed: ${passed ? '✅ YES - Exiting loop' : '❌ NO - Continue iterating'}`);
+      console.log(`   Passed: ${passed ? "✅ YES - Exiting loop" : "❌ NO - Continue iterating"}`);
       
       if (passed) {
         console.log(`\n✅ WORKFLOW COMPLETE! EI: ${inputData.current_ei_score}/10, SC: ${inputData.current_sc_score}/10\n`);
@@ -301,13 +287,3 @@ export const simpleWritingWorkflow = createWorkflow({
   )
   .commit();
 
-// Helper function to load research from file
-export async function loadResearchFile(filepath: string): Promise<string> {
-  const data = JSON.parse(fs.readFileSync(filepath, 'utf-8'));
-  return data.combinedResearch || '';
-}
-
-// Helper function to load voice example
-export async function loadVoiceExample(filepath: string): Promise<string> {
-  return fs.readFileSync(filepath, 'utf-8');
-}

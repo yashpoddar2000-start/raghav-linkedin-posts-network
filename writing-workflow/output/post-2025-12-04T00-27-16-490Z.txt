@@ -1,0 +1,33 @@
+Chipotle's Chipotlanes generate roughly $500-600K higher AUV than comparable traditional locations. But that uplift isn't purely format magic.
+
+Part of the $500-600K AUV gap is format; part is where Chipotle chooses to build Chipotlanes. These drive-thru lanes typically go into newer, suburban, drive-thru-friendly sites. Across cohorts where Chipotle has tried both formats in similar trade areas, the incremental impact of the lane looks more like $300-400K, with the rest explained by site quality and newer-unit effects.
+
+1,068 Chipotlanes operational by end of 2024. 257 of 304 new restaurants in 2024 included one.
+
+Here's the unit economics that matter:
+
+At $2.8M AUV and 20% restaurant-level margin, a traditional unit generates $560K in restaurant profit. At $3.4M and 22%, a Chipotlane unit generates $748K. That's +$188K against $75-100K incremental capex. Implies a 5-7 month payback on the drive-thru build-out cost before considering cannibalization or above-store costs.
+
+The 200 basis point margin improvement likely comes from: ~100-150 bps labor leverage on higher volume, some G&A and occupancy dilution per dollar of sales, partially offset by higher packaging costs and potentially higher third-party fees if delivery is a meaningful slice of digital orders.
+
+How Chipotlanes work differently:
+
+**Digital-only lanes:** No menu boards, no speakers, no payment processing at window. Scan QR code, grab bag, drive away. Those micro-frictions show up as 15-20% lower throughput versus theoretical capacity, forcing staffing an extra 2-3 hours at peak to avoid service failures.
+
+**Dedicated Digital Makeline:** Separate assembly line for online orders. Kitchen staff isn't switching between dine-in and drive-thru workflows. Still requires coordination with in-store pickup shelves and training a second makeline during busy periods. The real constraint becomes which makeline hits capacity first during lunch rush.
+
+**Higher check averages:** Digital orders run 15-20% higher, driven mainly by more add-ons (guac, queso) and sides, not necessarily bigger parties. The lack of social time pressure makes people upsell themselves. That check lift is a non-trivial piece of the AUV delta.
+
+The throughput advantage is real but nuanced. Chipotlane pickup window dwell time averages 30 seconds. That's not the same as end-to-end fulfillment time, which includes digital ordering and kitchen prep. Traditional drive-thrus quote 2.5-3 minute total service times. Chipotlanes likely run 90-120 seconds end-to-end when orders are ready on arrival.
+
+Digital sales: 35.1% of total revenue in 2024. If Chipotlanes represent ~30% of the fleet but account for ~45% of digital sales, that implies digital penetration in those boxes is 15-20 percentage points higher than the system average.
+
+The constraint to rolling out more Chipotlanes isn't consumer demand—it's access to sites that allow drive-thrus under local zoning, have the right traffic patterns, and don't over-cannibalize nearby units. Some high-AUV urban locations will never benefit from, or can't physically accommodate, Chipotlanes.
+
+In suburban trade areas where drive-thru is table stakes, Chipotlanes turn a marginal site into a top-quartile box. That's why they matter for getting from ~3,500 to 7,000 units. The target itself is driven by a broader whitespace and demographic thesis.
+
+For new builds, the relevant question is: "spend an additional $75-100K to make this a Chipotlane." At +$150-200K incremental profit and $75-100K incremental capex, payback ranges from ~5 to 8 months in most markets, though California and NYC labor costs stretch this timeline.
+
+$600K extra revenue per store × 1,000+ Chipotlanes = $600M+ incremental revenue.
+
+The real long-term risk isn't whether Chipotlanes "work"—they clearly do—it's whether the last 2,000-3,000 sites in the 7,000-unit plan without Chipotlanes can still clear Chipotle's historical return thresholds. Chipotlanes might be masking how thin the margin of error is for non-drive-thru boxes in maturing markets.

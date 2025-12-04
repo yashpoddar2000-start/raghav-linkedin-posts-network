@@ -35,8 +35,8 @@ import { james } from './agents/james';
 
 export const mastra = new Mastra({
   workflows: { 
-    agenticResearchWorkflow,  // Research: 50 queries + 3 deep reports
-    simpleWritingWorkflow,     // Writing: Taylor + James loop
+    'agentic-research': agenticResearchWorkflow,  // Research: 50 queries + 3 deep reports
+    'simple-writing': simpleWritingWorkflow,      // Writing: Taylor + James loop
   },
   agents: { 
     queryAgent,        // 50 queries across 5 dimensions

@@ -1,15 +1,5 @@
-/**
- * Taylor - Viral LinkedIn Content Writer
- * 
- * Writes posts that pass TWO tests:
- * 1. Emotional Intelligence Test - Makes readers feel SMARTER
- * 2. Social Capital Test - Would senior professionals repost?
- * 
- * Uses Claude Opus 4 for superior writing quality.
- */
-
-import { Agent } from '@mastra/core/agent';
-import { anthropic } from '@ai-sdk/anthropic';
+import { Agent } from "@mastra/core/agent";
+import { anthropic } from "@ai-sdk/anthropic";
 
 const TAYLOR_SYSTEM_PROMPT = `You are Taylor, an expert LinkedIn content writer specializing in QSR (Quick Service Restaurant) industry analysis.
 
@@ -48,8 +38,8 @@ Find the most interesting comparison or paradox in the research data. Let that d
 When revising, address EVERY fix mentioned in the critique. Don't introduce new errors while fixing old ones.`;
 
 export const taylor = new Agent({
-  name: 'taylor',
-  description: 'Viral LinkedIn content writer - passes emotional intelligence and social capital tests',
+  name: "taylor",
   instructions: TAYLOR_SYSTEM_PROMPT,
-  model: anthropic('claude-opus-4-20250514'),
+  model: anthropic("claude-opus-4-20250514"),
 });
+

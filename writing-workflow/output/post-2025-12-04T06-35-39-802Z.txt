@@ -1,0 +1,72 @@
+Why does Wingstop run a $2.1M box at 70% digital while Chipotle runs a $3M+ box at just 35% digital?
+
+The brand with half the digital penetration generates 50% more revenue per store.
+
+Here's the paradox: Chipotle's lowest digital share is attached to its highest returns.
+
+Off-premise now drives ~75% of restaurant traffic. Every QSR is betting the company on winning that traffic. But they're taking radically different paths.
+
+Wingstop went all-in: 70.3% digital sales, nearly 100% off-premise in new prototypes, cashless and seat-less stores. Total capex: $259-975K.
+
+Chipotle left the dining room alone and pushed all the optimization into a single, cheap lane on the side of the building: 35.1% digital systemwide, but Chipotlane stores run 10-20% higher sales than traditional boxes.
+
+The math:
+- Wingstop: $2.1M AUV, 25.5% margins, <2-year payback, +36% revenue growth in 2024
+- Chipotle base: >$3M AUV systemwide
+- Chipotlane stores: $3.3-3.6M AUV (using 10-20% uplift range)
+
+For $75-100K, Chipotle effectively buys itself an extra $300-600K of annual sales at each store. That's a mini-Wingstop worth of incremental revenue stapled onto an existing burrito line for a fraction of Wingstop's full box build cost.
+
+The pickup paradox: Chipotlane requires pre-payment. No menu boards. No speakers. Just identification and handoff.
+
+Average Chipotlane pickup: under 30 seconds.
+Industry drive-thru average: 2-3 minutes.
+
+That speed difference shifts the bottleneck from the window to the parking lot. More cars can cycle through per hour.
+
+Back-of-the-envelope economics (assuming ~22% restaurant-level margins in line with historical Chipotle store margins):
+
+$300-600K incremental revenue × ~22% margins = ~$66-132K incremental profit annually.
+
+Incremental Chipotlane capex: $75-100K.
+
+Payback: Under a year. First-year ROIC: 66-132%.
+
+Compare that to Taco Bell Defy—a ground-up, two-story, multi-lane prototype. Taco Bell's standard builds range from $575K to over $3M. Defy, as a more expensive format than Go Mobile, pushes well into seven figures.
+
+Defy's average service time: 2 minutes 32 seconds.
+Chipotlane: under 30 seconds.
+
+Defy posts strong drive-thru satisfaction (~88%), but still trails slower competitors like Chick-fil-A. Taco Bell has the fastest drive-thru in the country and an 88% satisfaction score—and it still can't match Chick-fil-A on guest happiness. The lesson: speed-at-all-costs formats generate good KPIs and average experiences.
+
+Meanwhile, Taco Bell's pushing to grow average U.S. company store profitability from $550K in 2024 to $800K by 2030—a $250K uplift over six years at the system level, not solely attributable to Defy.
+
+Chipotle gets similar profit uplift with $75-100K and immediate returns.
+
+The technology stack matters too:
+
+Chipotle layers automation throughout: Dual-sided grills, automated rice cookers, Autocado, Hyphen digital makelines. The 30-second promise isn't just a lane—it's an integrated back-of-house system that combines speed and perceived quality.
+
+System-wide impact (on simple assumptions):
+
+1,068 Chipotlanes today × ~$90-100K average incremental profit = on the order of ~$100M of annual EBIT. Chipotle doesn't disclose it this way, but that's the scale we're talking about.
+
+With 257 new Chipotlanes opened in 2024 and at least 80% of new builds going forward including one, Chipotle adds ~$20-25M in implied incremental profit annually for a ~$20-25M incremental capex bill.
+
+Layer that onto a base business generating ~19% ROIC with a path to 7,000 units by 2030. For $75-100K, Chipotle effectively buys itself an extra $300-600K of annual sales at each store. That's why ROIC holds at ~19% even as the system scales.
+
+The capital allocation contrast:
+
+Wingstop: $259-975K total capex, $2.1M AUV, 25.5% margins, <2-year payback, +36% revenue growth. Best-in-class unit economics for a full store build and system-level growth champion.
+
+Chipotle: $1.0-1.9M base build + $75-100K Chipotlane = $3.3-3.6M AUV in Chipotlane units. Higher absolute dollars, lower return on total capital, but astronomical returns on the incremental Chipotlane investment.
+
+Taco Bell Defy: Seven-figure rebuild for 24% restaurant margins. Spending the most to move the needle the least.
+
+Three models. Three capital strategies. All chasing the same 75% off-premise opportunity.
+
+Wingstop's off-premise bet is winning on system growth and margins. Chipotle's winning on incremental returns per dollar of capex. Taco Bell is spending the most to move the needle the least.
+
+Digital penetration is a lazy metric.
+
+Where you apply digital—and how it unlocks throughput at peak hours—determines who wins.
