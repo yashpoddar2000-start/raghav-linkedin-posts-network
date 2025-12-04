@@ -24,6 +24,9 @@ import { LibSQLStore } from '@mastra/libsql';
 import { completeContentPipeline } from './workflows/complete-content-pipeline';
 import { researchPhase1 } from './workflows/research-phase1';
 import { writingPhase2 } from './workflows/writing-phase2';
+import { klaraResearchWorkflow } from './workflows/klara-research';
+import { agenticResearchWorkflow } from './workflows/agentic-research';
+import { simpleWritingWorkflow } from './workflows/simple-writing';
 
 // Prompt-Only Workflows (for testing and optimization)
 import { researchPhase1PromptOnly } from './workflows/prompt-only';
@@ -37,6 +40,9 @@ import {
   taylor, 
   james 
 } from './agents';
+import { klara } from './agents/klara';
+import { queryAgent } from './agents/query-agent';
+import { deepResearchAgent } from './agents/deep-research-agent';
 
 // Prompt-Only Agents (for testing and optimization)
 import {
@@ -49,6 +55,9 @@ export const mastra = new Mastra({
     completeContentPipeline,
     researchPhase1,
     writingPhase2,
+    klaraResearchWorkflow,
+    agenticResearchWorkflow, // NEW: Simple 2-agent research workflow
+    simpleWritingWorkflow,   // NEW: Taylor + James loop
     // Prompt-only workflows for testing
     researchPhase1PromptOnly,
   },
@@ -59,6 +68,9 @@ export const mastra = new Mastra({
     maya,
     taylor,
     james,
+    klara,
+    queryAgent,        // NEW: 50 queries agent
+    deepResearchAgent, // NEW: 3 deep research agent
     // Prompt-only agents for testing
     alexPromptOnly,
     davidPromptOnly,

@@ -57,14 +57,23 @@ OUTPUT FORMAT (JSON only):
   "expertVerdict": "Your overall take as a 15-year industry veteran - be honest"
 }
 
-SCORING:
-- 90-100: APPROVED - Genuinely sophisticated analysis I'd share
-- 75-89: APPROVED - Good but missing depth
-- 60-74: NEEDS_REVISION - Surface-level, needs work
-- 40-59: NEEDS_REVISION - Significant problems
-- Below 40: REJECT - Embarrassing to share
+SCORING (BE BRUTAL - 95+ is RARE):
+- 95-100: EXCEPTIONAL - Top 1% analysis. Would instantly repost. Makes me look brilliant for sharing it. Perfect structure, non-obvious insight, quotable lines, flawless logic.
+- 90-94: EXCELLENT - Top 5% analysis. Would repost after reading twice. Strong but missing that one "holy shit" moment.
+- 80-89: GOOD - Solid analysis but feels like I've seen this angle before. Missing the unique insight that stops scrolling.
+- 70-79: DECENT - Correct but obvious. The kind of analysis anyone could write with the same data.
+- 60-69: WEAK - Surface-level. Missing mechanisms. Just restating numbers without insight.
+- Below 60: REJECT - Would be embarrassed to share this.
 
-REMEMBER: You've seen thousands of restaurant analyses. You know what's truly insightful vs. what's dressed-up obvious. Be the harsh critic. Return ONLY valid JSON.`,
+A 95+ post has ALL of these:
+1. A hook that makes you stop scrolling (not forced, naturally compelling)
+2. A non-obvious insight that changes how you think about the topic
+3. Specific numbers that PROVE the insight (not just decorate it)
+4. A clear mechanism explaining WHY (not just WHAT)
+5. A quotable line you'd remember tomorrow
+6. Perfect structure that builds logically
 
-  model: openai('gpt-4o'), // Using stronger model for brutal evaluation
+REMEMBER: You've seen thousands of restaurant analyses. 95+ is RARE. Most posts are 70-85. Only give 95+ if this post is genuinely in the top 1% of business content you've ever seen. Be the harsh critic. Return ONLY valid JSON.`,
+
+  model: openai('gpt-5'), // Using GPT-5 for brutal evaluation
 });

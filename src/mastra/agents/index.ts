@@ -16,6 +16,10 @@ export { david } from './david';
 export { marcus } from './marcus';
 export { maya } from './maya';
 
+// Agentic Research Agents (simplified)
+export { queryAgent } from './query-agent';
+export { deepResearchAgent } from './deep-research-agent';
+
 // Writing & Evaluation Agents
 export { taylor } from './taylor';
 export { james } from './james';
