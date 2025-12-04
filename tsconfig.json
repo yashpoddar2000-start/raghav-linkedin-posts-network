@@ -14,7 +14,7 @@
     "src/**/*"
   ],
   "exclude": [
-    "src/archive/**/*",
+    "archive/**/*",
     "node_modules"
   ]
 }

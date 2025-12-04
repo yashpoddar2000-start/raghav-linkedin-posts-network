@@ -1,18 +1,15 @@
 /**
  * Production Workflows - Clean Exports
  * 
- * Workflows:
- * - researchPhase1: 3-round research with dountil loop
- * - writingPhase2: Taylor writes, James evaluates with dountil loop
- * - completeContentPipeline: Full topic → post pipeline (legacy)
+ * Research Workflow:
+ * - agenticResearchWorkflow: Query Agent (50 queries) → Deep Research Agent (3 reports) → Save
+ * 
+ * Writing Workflow:
+ * - simpleWritingWorkflow: Taylor writes → James evaluates → Loop until ≥95 (max 4 iterations)
  */
 
-// Phase 1: Research workflow with dountil loop
-export { researchPhase1 } from './research-phase1';
+// Research: 50 queries + 3 deep research reports
+export { agenticResearchWorkflow } from './agentic-research';
 
-// Phase 2: Writing workflow with dountil loop
-export { writingPhase2 } from './writing-phase2';
-
-// Full pipeline (legacy - uses inline logic)
-export { completeContentPipeline } from './complete-content-pipeline';
-
+// Writing: Taylor + James feedback loop
+export { simpleWritingWorkflow } from './simple-writing';

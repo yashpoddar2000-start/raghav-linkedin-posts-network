@@ -1,19 +1,22 @@
 /**
  * Mastra Configuration - Production Ready
  * 
- * Clean setup for the QSR LinkedIn Content Pipeline
+ * Clean QSR LinkedIn Content Pipeline
  * 
- * Main Workflow: completeContentPipeline
- * - Topic → Research (45 queries + 3 deep) → Taylor → James → Approved Post
- * - ~7 min end-to-end, ~$0.20/topic
- * - Research auto-saved to research-data/
+ * RESEARCH: agenticResearchWorkflow
+ * - Topic → Query Agent (50 queries) → Deep Research Agent (3 reports) → Save JSON
+ * - ~5-10 min, ~$0.20-$0.35/topic
+ * - Output: research-data/research-{topic}-{date}.json
  * 
- * Agents:
- * - alex: Financial queries via Exa Answer API
- * - david: Deep research via Exa Deep Research API
- * - marcus: Research direction guidance
- * - taylor: LinkedIn post writer
- * - james: Brutal evaluator (Wharton MBA criteria)
+ * WRITING: simpleWritingWorkflow
+ * - Research JSON → Taylor writes → James evaluates → Loop until ≥95 (max 4 iterations)
+ * - Output: outputs/post-{date}.json
+ * 
+ * Production Agents:
+ * - queryAgent: 50 financial/operational queries (Exa Answer API)
+ * - deepResearchAgent: 3 strategic deep research reports (Exa Deep Research API)
+ * - taylor: LinkedIn post writer (GPT-5, viral post patterns)
+ * - james: Brutal evaluator (GPT-5, Wharton MBA criteria, ≥95 to pass)
  */
 
 import { Mastra } from '@mastra/core/mastra';
@@ -21,59 +24,25 @@ import { PinoLogger } from '@mastra/loggers';
 import { LibSQLStore } from '@mastra/libsql';
 
 // Production Workflows
-import { completeContentPipeline } from './workflows/complete-content-pipeline';
-import { researchPhase1 } from './workflows/research-phase1';
-import { writingPhase2 } from './workflows/writing-phase2';
-import { klaraResearchWorkflow } from './workflows/klara-research';
 import { agenticResearchWorkflow } from './workflows/agentic-research';
 import { simpleWritingWorkflow } from './workflows/simple-writing';
 
-// Prompt-Only Workflows (for testing and optimization)
-import { researchPhase1PromptOnly } from './workflows/prompt-only';
-
 // Production Agents
-import { 
-  alex, 
-  david, 
-  marcus, 
-  maya,
-  taylor, 
-  james 
-} from './agents';
-import { klara } from './agents/klara';
 import { queryAgent } from './agents/query-agent';
 import { deepResearchAgent } from './agents/deep-research-agent';
-
-// Prompt-Only Agents (for testing and optimization)
-import {
-  alexPromptOnly,
-  davidPromptOnly
-} from './agents/prompt-only';
+import { taylor } from './agents/taylor';
+import { james } from './agents/james';
 
 export const mastra = new Mastra({
   workflows: { 
-    completeContentPipeline,
-    researchPhase1,
-    writingPhase2,
-    klaraResearchWorkflow,
-    agenticResearchWorkflow, // NEW: Simple 2-agent research workflow
-    simpleWritingWorkflow,   // NEW: Taylor + James loop
-    // Prompt-only workflows for testing
-    researchPhase1PromptOnly,
+    agenticResearchWorkflow,  // Research: 50 queries + 3 deep reports
+    simpleWritingWorkflow,     // Writing: Taylor + James loop
   },
   agents: { 
-    alex,
-    david,
-    marcus,
-    maya,
-    taylor,
-    james,
-    klara,
-    queryAgent,        // NEW: 50 queries agent
-    deepResearchAgent, // NEW: 3 deep research agent
-    // Prompt-only agents for testing
-    alexPromptOnly,
-    davidPromptOnly,
+    queryAgent,        // 50 queries across 5 dimensions
+    deepResearchAgent, // 3 strategic deep research reports
+    taylor,            // LinkedIn post writer
+    james,             // Brutal evaluator (≥95 to pass)
   },
   storage: new LibSQLStore({
     url: ":memory:",

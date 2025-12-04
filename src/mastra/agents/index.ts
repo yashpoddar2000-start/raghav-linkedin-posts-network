@@ -1,22 +1,16 @@
 /**
  * Production Agents - Clean Exports
  * 
- * These agents power the complete content pipeline:
- * - Alex: Financial research queries via Exa Answer API
- * - David: Deep strategic research via Exa Deep Research API
- * - Marcus: Guides research direction between rounds
- * - Maya: Extracts viral economic insights (optional)
- * - Taylor: Writes LinkedIn posts from research
- * - James: Brutal evaluator (Wharton MBA criteria)
+ * Agentic Research (minimal user prompts, rich system prompts):
+ * - queryAgent: 50 Exa Answer queries across 5 dimensions
+ * - deepResearchAgent: 3 strategic deep research reports
+ * 
+ * Writing & Evaluation:
+ * - taylor: LinkedIn post writer (GPT-5, viral post patterns)
+ * - james: Brutal evaluator (GPT-5, ≥95 to pass)
  */
 
 // Research Agents
-export { alex } from './alex';
-export { david } from './david';
-export { marcus } from './marcus';
-export { maya } from './maya';
-
-// Agentic Research Agents (simplified)
 export { queryAgent } from './query-agent';
 export { deepResearchAgent } from './deep-research-agent';
 
